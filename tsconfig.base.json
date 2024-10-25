@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nx-monorepo-nextjs/Button": ["libs/shared/Button/src/index.ts"],
+      "@nx-monorepo-nextjs/Button/server": ["libs/shared/Button/src/server.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
