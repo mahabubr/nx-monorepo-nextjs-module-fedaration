@@ -1,7 +1,5 @@
-/* eslint-disable @nx/enforce-module-boundaries */
-
 import { useState } from 'react';
-import { Button } from '../../../../libs/shared/Button/src';
+import { Button } from '@nx-monorepo-nextjs/Button';
 
 const CreateEventForm = () => {
   const [eventData, setEventData] = useState({
@@ -22,6 +20,8 @@ const CreateEventForm = () => {
     console.log('Event Created:', eventData);
     // Reset form
     setEventData({ title: '', date: '', time: '', description: '' });
+
+    window.location.href = 'http://localhost:3001';
   };
 
   return (
@@ -43,7 +43,6 @@ const CreateEventForm = () => {
           name="title"
           value={eventData.title}
           onChange={handleChange}
-          required
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
@@ -60,7 +59,6 @@ const CreateEventForm = () => {
           name="date"
           value={eventData.date}
           onChange={handleChange}
-          required
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
@@ -77,7 +75,6 @@ const CreateEventForm = () => {
           name="time"
           value={eventData.time}
           onChange={handleChange}
-          required
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
@@ -93,7 +90,6 @@ const CreateEventForm = () => {
           name="description"
           value={eventData.description}
           onChange={handleChange}
-          required
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           rows={4}
         />

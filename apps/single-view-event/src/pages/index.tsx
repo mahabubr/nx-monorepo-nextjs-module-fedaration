@@ -1,41 +1,89 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { Button } from '@nx-monorepo-nextjs/Button';
+
+const events = [
+  {
+    id: 1,
+    title: 'Coding Bootcamp',
+    date: '2024-11-01',
+    time: '10:00 AM',
+    description:
+      'An intensive coding bootcamp covering full-stack development.',
+  },
+  {
+    id: 2,
+    title: 'Yoga Workshop',
+    date: '2024-11-03',
+    time: '8:00 AM',
+    description: 'A morning yoga workshop for beginners and enthusiasts alike.',
+  },
+  {
+    id: 3,
+    title: 'Tech Conference',
+    date: '2024-11-05',
+    time: '9:30 AM',
+    description: 'Annual tech conference showcasing the latest in technology.',
+  },
+  {
+    id: 4,
+    title: 'Art Exhibition',
+    date: '2024-11-07',
+    time: '6:00 PM',
+    description: 'An art exhibition featuring local artists and sculptors.',
+  },
+  {
+    id: 5,
+    title: 'Music Festival',
+    date: '2024-11-10',
+    time: '5:00 PM',
+    description: 'An open-air music festival with bands from around the world.',
+  },
+  {
+    id: 6,
+    title: 'Startup Pitch Event',
+    date: '2024-11-15',
+    time: '1:00 PM',
+    description: 'Pitch event for startups seeking funding and mentorship.',
+  },
+];
+
 export function Index() {
+  const router = useRouter();
+  const { id } = router.query;
+  const [eventData, setEventData] = useState<any>(null);
+
+  useEffect(() => {
+    if (id) {
+      const event = events.find((e) => e.id === Number(id));
+      setEventData(event);
+    }
+  }, [id]);
+
+  if (!eventData) {
+    return <p>Loading event details...</p>;
+  }
+
   return (
-    <div className="flex flex-col min-h-screen">
-      <header className="bg-blue-600 text-white py-4">
-        <h1 className="text-2xl text-center">Single View Page</h1>
-      </header>
-
-      <main className="flex-grow flex items-center justify-center p-6">
-        <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-6">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Card Title</h2>
-          <p className="text-gray-600 mb-4">
-            This is a detailed description of the card content. It provides an
-            in-depth overview of what the card is about, including all relevant
-            information that the user might find useful.
-          </p>
-          <p className="text-gray-600 mb-4">
-            Additional information can be provided here to elaborate on the
-            content or offer insights related to the card.
-          </p>
-          <div className="flex justify-between items-center mt-4">
-            <a
-              href="#"
-              className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-200"
-            >
-              Action Button
-            </a>
-            <button className="bg-gray-300 text-gray-800 py-2 px-4 rounded hover:bg-gray-400 transition duration-200">
-              Back
-            </button>
-          </div>
-        </div>
-      </main>
-
-      <footer className="bg-gray-800 text-white py-4">
-        <p className="text-center">
-          &copy; 2024 Your Company. All rights reserved.
+    <div className="w-full h-screen grid place-items-center">
+      <div>
+        <h1 className="text-3xl font-bold text-gray-800">{eventData.title}</h1>
+        <p className="text-gray-500 mt-2">
+          {eventData.date} at {eventData.time}
         </p>
-      </footer>
+        <p className="mt-4 text-gray-600">{eventData.description}</p>
+      </div>
+      <div className="mt-4">
+        <Button
+          onClick={() => {
+            window.location.href = `http://localhost:3001`;
+          }}
+          type="button"
+        >
+          View All
+        </Button>
+      </div>
     </div>
   );
 }
