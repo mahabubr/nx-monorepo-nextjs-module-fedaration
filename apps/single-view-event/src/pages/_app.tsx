@@ -1,6 +1,9 @@
+/* eslint-disable @nx/enforce-module-boundaries */
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import './styles.css';
+import { store } from '../../../../shared-state/src';
+import { Provider } from 'react-redux';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
@@ -9,7 +12,10 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <title>Welcome to single-view-event!</title>
       </Head>
       <main className="app">
-        <Component {...pageProps} />
+        {' '}
+        <Provider store={store}>
+          <Component {...pageProps} />
+        </Provider>
       </main>
     </>
   );
