@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { Button } from '@nx-monorepo-nextjs/Button';
+// @ts-ignore
+import Card from 'create/Card';
 
 const events = [
   {
@@ -83,6 +86,21 @@ export function Index() {
         >
           View All
         </Button>
+      </div>
+
+      <div className="my-20 grid grid-cols-3 gap-5 w-8/12 mx-auto">
+        <Card
+          title="Module Federation"
+          description="This Card is shared by nx monorepo and module federation"
+        />
+        <Card
+          title="Module Federation"
+          description="This Card is shared by nx monorepo and module federation"
+        />
+        <Card
+          title="Module Federation"
+          description="This Card is shared by nx monorepo and module federation"
+        />
       </div>
     </div>
   );
