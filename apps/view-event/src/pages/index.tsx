@@ -70,7 +70,7 @@ export function Index() {
           </div>
         ))}
       </div>
-      <div className="flex justify-center mt-5">
+      <div className="mt-5 w-20 mx-auto">
         <Button
           onClick={() => {
             window.location.href = 'http://localhost:3000';

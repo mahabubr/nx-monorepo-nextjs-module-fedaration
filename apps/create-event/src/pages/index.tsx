@@ -1,3 +1,4 @@
+import Card from '../components/Card';
 import CreateEventForm from '../components/CreateEventForm ';
 
 export function Index() {
@@ -8,6 +9,20 @@ export function Index() {
       </h2>
       <div className="mt-10">
         <CreateEventForm />
+      </div>
+      <div className="my-20 grid grid-cols-3 gap-5">
+        <Card
+          title="Module Federation"
+          description="This Card is shared by nx monorepo and module federation"
+        />
+        <Card
+          title="Module Federation"
+          description="This Card is shared by nx monorepo and module federation"
+        />
+        <Card
+          title="Module Federation"
+          description="This Card is shared by nx monorepo and module federation"
+        />
       </div>
     </div>
   );
