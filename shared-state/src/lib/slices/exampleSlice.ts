@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface ExampleState {
+// Export the ExampleState type
+export interface ExampleState {
   value: number;
 }
 
