@@ -17,6 +17,10 @@
     "paths": {
       "@nx-monorepo-nextjs/Button": ["libs/shared/Button/src/index.ts"],
       "@nx-monorepo-nextjs/Button/server": ["libs/shared/Button/src/server.ts"],
+      "@nx-monorepo-nextjs/libs/ui-components": ["ui-components/src/index.ts"],
+      "@nx-monorepo-nextjs/libs/ui-components/server": [
+        "ui-components/src/server.ts"
+      ],
       "@nx-monorepo-nextjs/shared-state": ["shared-state/src/index.ts"]
     }
   },

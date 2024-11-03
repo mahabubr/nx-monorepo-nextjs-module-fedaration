@@ -1,3 +1,4 @@
+import { UiComponents } from '@nx-monorepo-nextjs/libs/ui-components';
 import Card from '../components/Card';
 import CreateEventForm from '../components/CreateEventForm ';
 
@@ -24,6 +25,7 @@ export function Index() {
           description="This Card is shared by nx monorepo and module federation"
         />
       </div>
+      <UiComponents />
     </div>
   );
 }
